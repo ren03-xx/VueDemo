@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js/vue.js"></script>
+</head>
+<body>
+    <!--vue-app是根容器-->
+    <div id="vue-app">
+        <p>{{greet('morning ')}}</p>  <!--不管greet有没有参数都要加()，因为有{{}}，不加会误认为是属性-->
+        <h1>{{name}}</h1>
+        <a v-bind:href="website">百度</a>    <!-- 属性绑定：v-bind拿到绑定的属性值-->
+        <input type="text" v-bind:value="job">
+        <p v-html="websiteTag"></p>     <!-- 属性绑定：v-html将websiteTag的值当做html来处理-->
+    </div>
+
+    <!--event事件-->
+    <div id="vue-event">
+        <button v-on:click.once="age++">add a year</button>   <!-- .once为事件修饰符，表示只能点一次-->
+        <button @click="dec1">subtract a year</button>  <!-- v-on等于@-->
+        <button v-on:dblclick="add(10)">add 10 year</button>
+        <button @dblclick="dec2(10)">subtract 10 year</button>
+        <p>{{age}}</p>
+
+        <!--mouse event-->
+        <div id="canvas" @mousemove="updateXY">
+            {{x}} , {{y}}
+        </div>
+
+        <!--事件修饰符-->
+        <div>
+            <a @click.stop="handleClick" href="http://www.baidu.com">百度</a>
+        </div>
+
+        <!--键盘修饰-->
+        <div>
+            <label>姓名：</label>
+                <input type="text" @keydown.enter="logName">&nbsp;     <!--只有在键入enter后控制台才能显示-->
+            <br>
+            <label>年龄：</label>
+                <input type="text" @keyup="logAge">
+        </div>
+
+        <!--双向数据绑定v-model，input输入-->
+        <label>性别：</label>
+        <input type="text" v-model.lazy="sex" placeholder="性别">     <!-- .lazy鼠标离开响应-->
+        <span>{{ sex }}</span>
+        <input type="checkbox" id="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+
+        <!-- ref的使用-->
+        <div>
+            <label>住址：</label>
+            <input type="text" ref="address" placeholder="住址" @keydown="getAddress">
+            <span>{{ address }}</span>
+        </div>
+    </div>
+</body>
+<script src="js/app.js"></script>
+</html>
+
