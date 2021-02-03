@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <title>Title</title>
 </head>
 <body>
-
+<div id="app">
+  <ul>
+    <li v-for = 'item in movies'>{{item}}</li>
+  </ul>
+</div>
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      movies:['信条', '霸王别姬', '复仇者联盟', '盗梦空间', '哪吒']
+    }
+  })
+</script>
 </body>
 </html>

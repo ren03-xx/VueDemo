@@ -6,10 +6,12 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+
     <!--vue-app是根容器-->
     <div id="vue-app">
         <p>{{greet('morning ')}}</p>  <!--不管greet有没有参数都要加()，因为有{{}}，不加会误认为是属性-->
         <h1>{{name}}</h1>
+        <h5 v-pre>{{name}}原封不动显示</h5>
         <a v-bind:href="website">百度</a>    <!-- 属性绑定：v-bind拿到绑定的属性值-->
         <input type="text" v-bind:value="job">
         <p v-html="websiteTag"></p>     <!-- 属性绑定：v-html将websiteTag的值当做html来处理-->
@@ -18,7 +20,7 @@
     <!--event事件-->
     <div id="vue-event">
         <button v-on:click.once="age++">add a year</button>   <!-- .once为事件修饰符，表示只能点一次-->
-        <button @click="dec1">subtract a year</button>  <!-- v-on等于@-->
+        <button @click="dec1">subtract a year</button>  <!-- v-on等于@ 语法糖-->
         <button v-on:dblclick="add(10)">add 10 year</button>
         <button @dblclick="dec2(10)">subtract 10 year</button>
         <p>{{age}}</p>
