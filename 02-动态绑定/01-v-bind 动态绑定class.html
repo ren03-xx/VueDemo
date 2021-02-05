@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    .gd{
+      /*固定属性*/
+    }
+    .ch1{
+      color: red;
+    }
+    .ch2{
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <h3 class="gd" v-bind:class="{ch1: isch1 , ch2: isch2}">{{message}}</h3>
+  <h3 class="gd" v-bind:class="getClasses()">{{message}}</h3>
+  <button v-on:click="ch2">改变颜色</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Rxx',
+      isch1: true,
+      isch2: false
+    },
+    methods: {
+      ch2: function () {
+        this.isch2 = !this.isch2;
+      },
+      getClasses: function () {
+        return {ch1: this.isch1 , ch2: this.isch2}
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>点击变红</title>
+  <style>
+    .chr{
+      color: red;
+    }
+  </style>
+</head>
+<body>
+<div id="app">
+  <ul v-on:click="ch">
+    <li v-for="(m,index) in movies" :class="{chr: tof}">{{index}}-{{m}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      movies: ['信条', '霸王别姬', '复仇者联盟', '盗梦空间', '哪吒'],
+      tof: false
+    },
+    methods: {
+      ch: function () {
+        this.tof = true
+      }
+    }
+  })
+</script>
+</body>
+</html>

@@ -13,7 +13,7 @@
         <h1>{{name}}</h1>
         <h5 v-pre>{{name}}原封不动显示</h5>
         <a v-bind:href="website">百度</a>    <!-- 属性绑定：v-bind拿到绑定的属性值-->
-        <input type="text" v-bind:value="job">
+        <input type="text" :value="job">    <!-- v-bind语法糖为直接:-->
         <p v-html="websiteTag"></p>     <!-- 属性绑定：v-html将websiteTag的值当做html来处理-->
     </div>
 
