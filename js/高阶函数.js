@@ -20,8 +20,8 @@ console.log(newNums2);
 
 //3. reudce使用
 let newNums3 = newNums2.reduce(function (preValue,i) {
-  return preValue += i
-},0)
+  return preValue + i
+},0);
 console.log(newNums3);
 
 //4. 连续调用多次高阶函数
@@ -31,11 +31,11 @@ let total = nums.filter(function (n) {
   return n * 2
 }).reduce(function (preValue,n) {
   return preValue + n
-},0)
+},0);
 console.log(total);
 
 //5. 使用箭头函数
 let total2 = nums.filter(n => n < 100).map(n => n * 2).reduce((pre,n) => pre + n);
 console.log(total2);
 
-//在购物车中可调用查看
+//可在购物车.js中调用查看

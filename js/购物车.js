@@ -87,7 +87,7 @@ console.log(newNums2);
 
 //3. reudce使用
 let newNums3 = newNums2.reduce(function (preValue,i) {
-  return preValue += i
+  return preValue + i
 },0)
 console.log(newNums3);
 
