@@ -7,6 +7,9 @@
 <body>
 <div id="app">
   <h3>{{fullName}}</h3>
+  <h3>{{fullName}}</h3>
+  <h3>{{fullName}}</h3>
+  <h3>{{fullName}}</h3>
   <h3>总价格：{{totalPrice}}</h3>
 </div>
 
@@ -25,7 +28,16 @@
       ]
     },
     computed: {
-      fullName: function () {
+      // fullName:{
+      //   set:function(){
+      //     一般不常用
+      //   },
+      //   get: function(){
+      //     return this.firstName + ' ' + this.lastName
+      //   }
+      // },
+      fullName() {    //方法的增强写法
+        console.log('first name');    //使用计算属性更优，若用方面则多次调用
         return this.firstName + ' ' + this.lastName
       },
       totalPrice: function () {

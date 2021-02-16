@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  {{message}}
+  <!--当在Html中未输入参数是，传送自动将鼠标事件-->
+  <button @click="getEvent0">按钮0</button>
+  <!--当还有其他参数时，使用$event参数来获取event事件-->
+  <button @click="getEvent(12516,$event)">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Rxx'
+    },
+    methods: {
+      getEvent0(mess){
+        console.log(mess)
+      },
+      getEvent(message,event){
+        console.log(message, event);
+      }
+    }
+  })
+</script>
+</body>
+</html>

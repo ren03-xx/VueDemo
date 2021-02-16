@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>条件判断</title>
+</head>
+<body>
+<div id="app">
+  <!--<h2 v-if="score >= 90">优秀</h2>-->
+  <!--<h2 v-else-if="score >= 80">良好</h2>-->
+  <!--<h2 v-else-if="score >= 60">及格</h2>-->
+  <!--<h2 v-else>不及格</h2>-->
+
+  {{showResult}}
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      score: 55
+    },
+    computed: {
+      showResult(){
+        let result = '';
+        if(this.score >= 90){
+          result = "优秀"
+        } else if(this.score >= 80){
+          result = '良好'
+        } else if(this.score >= 60){
+          result = "及格"
+        } else{
+          result = "不及格"
+        }
+        return result
+      }
+    }
+  })
+</script>
+</body>
+</html>

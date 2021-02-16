@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--v-if判断isShow，true展示，false删除 ，isShow不频繁改变时使用-->
+  <h2 v-if="isShow">{{message}}</h2>
+  <!--v-show判断isShow，true展示，false加入style = display：none ，isShow频繁改变时使用-->
+  <h2 v-show="isShow">{{message}}</h2>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Rxx',
+      isShow: true
+    },
+  })
+</script>
+</body>
+</html>

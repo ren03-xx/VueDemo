@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>登录</title>
+</head>
+<body>
+<div id="app">
+  <span v-if="isUser">
+    <label for="userName">用户名称</label>
+    <input type="text" id="userName" placeholder="name" key="name">
+  </span>
+  <!--小问题：输入框中有内容，但点登录切换时，框内内容复用保留了，由虚拟DOM（vdom）引起，可加key解决-->
+  <span v-else>
+    <label for="userEmail">用户邮箱</label>
+    <input type="text" id="userEmail" placeholder="email" key="email">
+  </span>
+  <button @click="isUser = !isUser">登录切换</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      isUser: true
+    },
+    methods: {
+
+    }
+  })
+</script>
+</body>
+</html>

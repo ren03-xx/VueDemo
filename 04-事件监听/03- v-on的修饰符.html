@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--1. 当button点击事件外边还有div点击事件时，可用.stop来隔绝外部的事件-->
+  <div @click="divClick()">
+    aaaaaa
+    <button v-on:click.stop="butClick">按钮1</button>
+  </div>
+  <!--2. .prevent修饰符用来阻止自动提交-->
+  <form action="baidu">
+    <input type="submit" value="提交" @click.prevent="butClick">
+  </form>
+  <!--3. 键盘的监听-->
+  <input type="text" @keyup="keyUp">
+  <input type="text" @keyup.enter="keyUp">
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: '#app',
+    data: {
+      message: 'Rxx'
+    },
+    methods: {
+      divClick(){
+        console.log("divClick");
+      },
+      butClick() {
+        console.log('butClick')
+      },
+      keyUp(){
+        console.log("keyup");
+      }
+    }
+  })
+</script>
+</body>
+</html>
